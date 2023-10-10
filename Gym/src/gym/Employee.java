@@ -1,7 +1,7 @@
 package com.mycompany.databaseexample;
 
 public class Employee {
-    private int employee_ID, members;
+    private int employee_ID, supervisor_ID;
     private String first_name, last_name, hire_date;
     
     Employee(int employee_ID, String first_name, String last_name,String hire_date, int members){
@@ -29,14 +29,14 @@ public class Employee {
     /**
      * @return the members
      */
-    public int getMembers() {
+    public int getSupervisor_ID() {
         return members;
     }
 
     /**
      * @param members the members to set
      */
-    public void setMembers(int members) {
+    public void setSupervisor_ID(int supervisor_ID) {
         this.members = members;
     }
 
