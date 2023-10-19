@@ -1,15 +1,15 @@
-package com.mycompany.databaseexample;
+package gym;
 
 public class Employee {
-    private int employee_ID, supervisor_ID;
+    private int employee_ID, supervisor_ID, members_representing;
     private String first_name, last_name, hire_date;
     
-    Employee(int employee_ID, String first_name, String last_name,String hire_date, int members){
+    Employee(int employee_ID, String first_name, String last_name,String hire_date, int members_representing){
         this.employee_ID = employee_ID;
         this.first_name = first_name;
         this.last_name = last_name;
         this.hire_date = hire_date;
-        this.members = members;
+        this.members_representing = members_representing;
     }
 
     /**
@@ -30,14 +30,14 @@ public class Employee {
      * @return the members
      */
     public int getSupervisor_ID() {
-        return members;
+        return this.supervisor_ID;
     }
 
     /**
-     * @param members the members to set
+     * @param supervisor_ID
      */
     public void setSupervisor_ID(int supervisor_ID) {
-        this.members = members;
+        this.supervisor_ID = supervisor_ID;
     }
 
     /**
