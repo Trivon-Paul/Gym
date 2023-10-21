@@ -1,10 +1,10 @@
 package gym;
 
 public class Employee {
-    private int employee_ID, members_representing;
-    private String first_name, last_name, hire_date, supervisor;
+    private int employee_ID, members_representing, supervisor;
+    private String first_name, last_name, hire_date;
     
-    Employee(int employee_ID, String first_name, String last_name, String hire_date, int members_representing, String supervisor){
+    Employee(int employee_ID, String first_name, String last_name, String hire_date, int members_representing, int supervisor){
         this.employee_ID = employee_ID;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -86,14 +86,14 @@ public class Employee {
     /**
      * @return the supervisor
      */
-    public String getSupervisor() {
+    public int getSupervisor() {
         return supervisor;
     }
 
     /**
      * @param supervisor the supervisor to set
      */
-    public void setSupervisor(String supervisor) {
+    public void setSupervisor(int supervisor) {
         this.supervisor = supervisor;
     }
     
