@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package gym;
 
 /**
@@ -11,6 +8,12 @@ package gym;
 public class Supervisor {
     private int supervisor_ID;
     private String first_name, last_name;
+    
+    Supervisor(int supervisor_ID, String first_name, String last_name){
+        this.supervisor_ID = supervisor_ID;
+        this. first_name = first_name;
+        this. last_name = last_name;
+    }
 
     /**
      * @return the supervisor_ID
