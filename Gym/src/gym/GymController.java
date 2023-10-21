@@ -244,6 +244,68 @@ public class GymController implements Initializable {
         //tableView.setOpacity(0.3);
         /* Allow for the values in each cell to be changable */
     }
+
+    //method for inserting employees into table
+    public void insertEmployee(int employee_ID,String first_name, String last_name, 
+            String hire_date, int members_representing, int supervisor) throws SQLException {
+        Connection conn = null;
+        try {
+            // create a connection to the database
+
+            conn = DriverManager.getConnection(databaseURL);
+
+            System.out.println("Connection to SQLite has been established.");
+
+            System.out.println("Inserting one record!");
+
+            String sql = "INSERT INTO employee(employee_ID,first_name,last_name,hire_date,"
+                    + "members_representing,supervisor) VALUES(?,?,?,?,?,?)";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setInt(1, employee_ID);
+            pstmt.setString(2, first_name);
+            pstmt.setString(3, last_name);
+            pstmt.setString(4, hire_date);
+            pstmt.setInt(5, members_representing);
+            pstmt.setInt(6, supervisor);
+            pstmt.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        System.out.println("employee_ID " + employee_ID);
+  
+        employeeData.add(new Employee(employee_ID, first_name,last_name,hire_date, 
+                members_representing, supervisor));
+    }
+
+    //method for inserting equipment
+    public void insertEquipment(){
+        
+    }
+
+    //method for inserting member
+    public void insertMember(){
+        
+    }
+
+    //method for inserting membership
+    public void insertMembershipType(){
+        
+    }
+
+    //method for inserting supervisor
+    public void insertSupervisor(){
+        
+    }
     
     
 }
