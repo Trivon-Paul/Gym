@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package gym;
 
 /**
@@ -9,15 +6,15 @@ package gym;
  * @author antho
  */
 public class Equipment {
-    private int equipment_ID, cost, daily_usage;
-    private String employee_owner;
-
-    Equipment(int equipment_ID, int cost, int daily_usage, String employee_ownner){
-    this.equipment_ID = equipment_ID;
-    this.cost = cost;
-    this.daily_usage = daily_usage;
-    this.employee_owner = employee_owner;
+    private int equipment_ID, cost, daily_usage,employee_owner;
+    
+    Equipment(int equipment_ID, int cost, int daily_usage, int employee_owner){
+        this.equipment_ID = equipment_ID;
+        this.cost = cost;
+        this.daily_usage = daily_usage;
+        this.employee_owner = employee_owner;
     }
+        
 
     /**
      * @return the equipment_ID
@@ -64,14 +61,14 @@ public class Equipment {
     /**
      * @return the employee_owner
      */
-    public String getEmployee_owner() {
+    public int getEmployee_owner() {
         return employee_owner;
     }
 
     /**
      * @param employee_owner the employee_owner to set
      */
-    public void setEmployee_owner(String employee_owner) {
+    public void setEmployee_owner(int employee_owner) {
         this.employee_owner = employee_owner;
     }
     
