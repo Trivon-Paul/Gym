@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package gym;
+package com.mycompany.databaseexample;
 
 /**
  *
@@ -11,6 +11,17 @@ package gym;
 public class Members {
     private int member_ID, total_visits;
     private String first_name, last_name, join_date, last_visit, employee_sponsor, membership;
+    
+    Members(int member_ID, String first_name, String last_name, String join_date, String last_visit, int total_visits, String employee_sponsor, String membership){
+        this. member_ID = member_ID;
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.join_date = join_date;
+        this.last_visit = last_visit;
+        this.total_visits = total_visits;
+        this.employee_sponsor = employee_sponsor;
+        this.membership = membership;
+    }
 
     /**
      * @return the member_ID
