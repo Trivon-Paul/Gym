@@ -29,7 +29,7 @@ public class Equipment {
     /**
      * @param equipment_ID the equipment_ID to set
      */
-    public void setEquioment_ID(int equipment_ID) {
+    public void setEquipment_ID(int equipment_ID) {
         this.equipment_ID = equipment_ID;
     }
 
