@@ -57,7 +57,11 @@ public class GymController implements Initializable {
     private TextField supervisor_ID, supervisor_first_nameTextField, supervisor_last_nameTextField;
 
     @FXML
-    TableColumn id = new TableColumn("ID");
+    TableColumn EmployeeID = new TableColumn("ID");
+    TableColumn EquipmentID = new TableColumn("ID");
+    TableColumn MemberID = new TableColumn("ID");
+    TableColumn MembershipID = new TableColumn("ID");
+    TableColumn SupervisorID = new TableColumn("ID");
 
     @Override
     public void initialize(URL location, ResourceBundle rb) {
@@ -67,7 +71,12 @@ public class GymController implements Initializable {
             
             System.out.println(ex.toString());
         }
-        intializeColumns();
+        //initializes columns for each table
+        intializeEmployeeColumns();
+        intializeEquipmentColumns();
+        intializeMemberColumns();
+        intializeMembershipColumns();
+        intializeSupervisorColumns();
         CreateSQLiteTable();
     }
     
@@ -85,6 +94,155 @@ public class GymController implements Initializable {
         this.membersData = FXCollections.observableArrayList();
         this.membershipTypesData = FXCollections.observableArrayList();
         this.supervisorData = FXCollections.observableArrayList();
+    }
+
+    //initializes columns for employee table
+    private void intializeEmployeeColumns() {
+        EmployeeID = new TableColumn("ID");
+        EmployeeID.setMinWidth(50);
+        EmployeeID.setCellValueFactory(new PropertyValueFactory<Employee, Integer>("ID"));
+
+        TableColumn first_name = new TableColumn("First Name");
+        first_name.setMinWidth(450);
+        first_name.setCellValueFactory(new PropertyValueFactory<Employee, String>("First Name"));
+
+        TableColumn last_name = new TableColumn("Last Name");
+        last_name.setMinWidth(100);
+        last_name.setCellValueFactory(new PropertyValueFactory<Employee, String>("Last Name"));
+
+        TableColumn hire_date = new TableColumn("Hire Date");
+        hire_date.setMinWidth(100);
+        hire_date.setCellValueFactory(new PropertyValueFactory<Employee, String>("Hire Date"));
+        
+        TableColumn members_representing = new TableColumn("Members Representing");
+        members_representing.setMinWidth(100);
+        members_representing.setCellValueFactory(new PropertyValueFactory<Employee, Integer>("Members Representing"));
+        
+        TableColumn supervisor = new TableColumn("Supervisor");
+        supervisor.setMinWidth(100);
+        supervisor.setCellValueFactory(new PropertyValueFactory<Employee, Integer>("Supervisor"));
+        
+        tableView.setItems(employeeData);
+        tableView.getColumns().addAll(EmployeeID, first_name,last_name , hire_date, members_representing, supervisor);
+
+        
+        //tableView.setOpacity(0.3);
+        /* Allow for the values in each cell to be changable */
+    }
+
+    //initialize columns for equipment table
+    private void intializeEquipmentColumns() {
+        EquipmentID = new TableColumn("ID");
+        EquipmentID.setMinWidth(50);
+        EquipmentID.setCellValueFactory(new PropertyValueFactory<Equipment, Integer>("ID"));
+
+        TableColumn cost = new TableColumn("Cost");
+        cost.setMinWidth(100);
+        cost.setCellValueFactory(new PropertyValueFactory<Equipment, Integer>("Cost"));
+
+        TableColumn daily_usage = new TableColumn("Daily Usage");
+        daily_usage.setMinWidth(100);
+        daily_usage.setCellValueFactory(new PropertyValueFactory<Equipment, Integer>("Daily Usage"));
+
+        TableColumn employee_owner = new TableColumn("Employee Owner");
+        employee_owner.setMinWidth(450);
+        employee_owner.setCellValueFactory(new PropertyValueFactory<Equipment, Integer>("Employee Owner"));
+        
+        tableView.setItems(equipmentData);
+        tableView.getColumns().addAll(EquipmentID, cost, daily_usage, employee_owner);
+
+        
+        //tableView.setOpacity(0.3);
+        /* Allow for the values in each cell to be changable */
+    }
+
+    //initialiize columns for member table
+    private void intializeMemberColumns() {
+        MemberID = new TableColumn("ID");
+        MemberID.setMinWidth(50);
+        MemberID.setCellValueFactory(new PropertyValueFactory<Employee, Integer>("ID"));
+
+        TableColumn first_name = new TableColumn("First Name");
+        first_name.setMinWidth(450);
+        first_name.setCellValueFactory(new PropertyValueFactory<Members, String>("First Name"));
+
+        TableColumn last_name = new TableColumn("Last Name");
+        last_name.setMinWidth(100);
+        last_name.setCellValueFactory(new PropertyValueFactory<Members, String>("Last Name"));
+
+        TableColumn join_date = new TableColumn("Join Date");
+        join_date.setMinWidth(100);
+        join_date.setCellValueFactory(new PropertyValueFactory<Members, String>("Join Date"));
+        
+        TableColumn last_visit = new TableColumn("Last Visit");
+        last_visit.setMinWidth(100);
+        last_visit.setCellValueFactory(new PropertyValueFactory<Members, String>("Last Visit"));
+        
+        TableColumn total_visits = new TableColumn("Last Visit");
+        total_visits.setMinWidth(100);
+        total_visits.setCellValueFactory(new PropertyValueFactory<Members, Integer>("Total Visits"));
+        
+        TableColumn membership_type = new TableColumn("Membership Type");
+        membership_type.setMinWidth(100);
+        membership_type.setCellValueFactory(new PropertyValueFactory<Members, Integer>("Membership Type"));
+        
+        TableColumn employee_sponsor = new TableColumn("Employee Sponsor");
+        employee_sponsor.setMinWidth(100);
+        employee_sponsor.setCellValueFactory(new PropertyValueFactory<Members, Integer>("Employee Sponsor"));
+        
+        tableView.setItems(membersData);
+        tableView.getColumns().addAll(MemberID, first_name,last_name , join_date, last_visit, membership_type, employee_sponsor);
+
+        //tableView.setOpacity(0.3);
+        /* Allow for the values in each cell to be changable */
+    }
+    
+    //initialize membership columns
+    private void intializeMembershipColumns() {
+        MembershipID = new TableColumn("ID");
+        MembershipID.setMinWidth(50);
+        MembershipID.setCellValueFactory(new PropertyValueFactory<Equipment, Integer>("ID"));
+
+        TableColumn cost = new TableColumn("Cost");
+        cost.setMinWidth(100);
+        cost.setCellValueFactory(new PropertyValueFactory<MembershipTypes, String>("Cost"));
+
+        TableColumn duration = new TableColumn("Duration");
+        duration.setMinWidth(100);
+        duration.setCellValueFactory(new PropertyValueFactory<MembershipTypes, Integer>("Duration"));
+
+        TableColumn type = new TableColumn("Type");
+        type.setMinWidth(450);
+        type.setCellValueFactory(new PropertyValueFactory<MembershipTypes, String>("Type"));
+        
+        tableView.setItems(membershipTypesData);
+        tableView.getColumns().addAll(MembershipID, cost, duration, type);
+
+        
+        //tableView.setOpacity(0.3);
+        /* Allow for the values in each cell to be changable */
+    }
+
+    //initialize supervisor columns
+    private void intializeSupervisorColumns() {
+        SupervisorID = new TableColumn("ID");
+        SupervisorID.setMinWidth(50);
+        SupervisorID.setCellValueFactory(new PropertyValueFactory<Supervisor, Integer>("ID"));
+
+        TableColumn first_name = new TableColumn("First Name");
+        first_name.setMinWidth(450);
+        first_name.setCellValueFactory(new PropertyValueFactory<Supervisor, String>("First Name"));
+
+        TableColumn last_name = new TableColumn("Last Name");
+        last_name.setMinWidth(100);
+        last_name.setCellValueFactory(new PropertyValueFactory<Supervisor, String>("Last Name"));
+        
+        tableView.setItems(supervisorData);
+        tableView.getColumns().addAll(SupervisorID, first_name, last_name);
+
+        
+        //tableView.setOpacity(0.3);
+        /* Allow for the values in each cell to be changable */
     }
     
     
