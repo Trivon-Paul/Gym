@@ -49,6 +49,14 @@ public class GymController implements Initializable {
     private VBox vBox;
 
     @FXML
+    private TextField first_NameTextField, last_NameTextField, hire_DateTextField, membersTextField;
+    private TextField equipment_IDTextField, costTextField, daily_UsageTextField, employee_OwnerTextField;
+    private TextField member_IDTextField, member_first_nameTextField, member_last_nameTextField,join_dateTextField,
+                      last_visitTextField, membershipTextfield, employee_SponsorTextField;
+    private TextField membership_TypeIDTextField, membership_CostTextField, duration_TextField, typeTextField;
+    private TextField supervisor_ID, supervisor_first_nameTextField, supervisor_last_nameTextField;
+
+    @FXML
     TableColumn id = new TableColumn("ID");
 
     @Override
