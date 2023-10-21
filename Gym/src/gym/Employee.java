@@ -1,15 +1,16 @@
 package gym;
 
 public class Employee {
-    private int employee_ID, supervisor_ID, members_representing;
-    private String first_name, last_name, hire_date;
+    private int employee_ID, members_representing;
+    private String first_name, last_name, hire_date, supervisor;
     
-    Employee(int employee_ID, String first_name, String last_name,String hire_date, int members_representing){
+    Employee(int employee_ID, String first_name, String last_name, String hire_date, int members_representing, String supervisor){
         this.employee_ID = employee_ID;
         this.first_name = first_name;
         this.last_name = last_name;
         this.hire_date = hire_date;
         this.members_representing = members_representing;
+        this.supervisor = supervisor;
     }
 
     /**
@@ -29,15 +30,15 @@ public class Employee {
     /**
      * @return the members
      */
-    public int getSupervisor_ID() {
-        return this.supervisor_ID;
+    public int getMembersRepresenting() {
+        return members_representing;
     }
 
     /**
-     * @param supervisor_ID
+     * @param members_representing the members to set
      */
-    public void setSupervisor_ID(int supervisor_ID) {
-        this.supervisor_ID = supervisor_ID;
+    public void setMembersRepresenting(int members_representing) {
+        this.members_representing = members_representing;
     }
 
     /**
@@ -80,6 +81,20 @@ public class Employee {
      */
     public void setHire_date(String hire_date) {
         this.hire_date = hire_date;
+    }
+
+    /**
+     * @return the supervisor
+     */
+    public String getSupervisor() {
+        return supervisor;
+    }
+
+    /**
+     * @param supervisor the supervisor to set
+     */
+    public void setSupervisor(String supervisor) {
+        this.supervisor = supervisor;
     }
     
    
