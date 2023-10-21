@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package gym;
 
 /**
@@ -11,6 +8,13 @@ package gym;
 public class MembershipTypes {
     private int membership_type_ID, cost, duration;
     private String type;
+    
+    MembershipTypes(int membership_type_ID, String type, int cost, int duration){
+        this.cost = cost;
+        this.membership_type_ID = membership_type_ID;
+        this.duration = duration;
+        this.type = type;
+    }
 
     /**
      * @return the membership_type_ID
