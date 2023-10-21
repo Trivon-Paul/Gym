@@ -12,6 +12,13 @@ public class Equipment {
     private int equipment_ID, cost, daily_usage;
     private String employee_owner;
 
+    Equipment(int equipment_ID, int cost, int daily_usage, String employee_ownner){
+    this.equipment_ID = equipment_ID;
+    this.cost = cost;
+    this.daily_usage = daily_usage;
+    this.employee_owner = employee_owner;
+    }
+
     /**
      * @return the equipment_ID
      */
