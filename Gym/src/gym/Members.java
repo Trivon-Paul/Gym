@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package gym;
 
 /**
@@ -9,10 +6,11 @@ package gym;
  * @author antho
  */
 public class Members {
-    private int member_ID, total_visits;
-    private String first_name, last_name, join_date, last_visit, employee_sponsor, membership;
+    private int member_ID, total_visits, employee_sponsor, membership;
+    private String first_name, last_name, join_date, last_visit;
     
-    Members(int member_ID, String first_name, String last_name, String join_date, String last_visit, int total_visits, String employee_sponsor, String membership){
+    Members(int member_ID, String first_name, String last_name, String join_date, String last_visit, 
+            int total_visits, int employee_sponsor, int membership){
         this. member_ID = member_ID;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -110,28 +108,28 @@ public class Members {
     /**
      * @return the employee_sponsor
      */
-    public String getEmployee_sponsor() {
+    public int getEmployee_sponsor() {
         return employee_sponsor;
     }
 
     /**
      * @param employee_sponsor the employee_sponsor to set
      */
-    public void setEmployee_sponsor(String employee_sponsor) {
+    public void setEmployee_sponsor(int employee_sponsor) {
         this.employee_sponsor = employee_sponsor;
     }
 
     /**
      * @return the membership
      */
-    public String getMembership() {
+    public int getMembership() {
         return membership;
     }
 
     /**
      * @param membership the membership to set
      */
-    public void setMembership(String membership) {
+    public void setMembership(int membership) {
         this.membership = membership;
     }
     
