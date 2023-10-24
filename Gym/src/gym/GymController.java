@@ -287,24 +287,164 @@ public class GymController implements Initializable {
                 members_representing, supervisor));
     }
 
-    //method for inserting equipment
-    public void insertEquipment(){
-        
+ public void loadEquipmentData() throws SQLException {
+
+        Connection conn = null;
+        Statement stmt = null;
+ 
+        try {
+
+            // create a connection to the database
+            conn = DriverManager.getConnection(databaseURL);
+
+            System.out.println("Connection to SQLite has been established.");
+            String sql = "SELECT * FROM Equipment;";
+            // Ensure we can query the actors table
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                Equipment equipment;
+                equipment = new Equipment(rs.getInt("equipment_ID"), rs.getInt("cost"), 
+                        rs.getInt("daily_usage"),rs.getInt("employee_owner"));
+                System.out.println(equipment.getEquipment_ID()+ " - " + equipment.getCost() + " - " + 
+                        equipment.getDaily_usage() + " - " + equipment.getEmployee_owner());
+                equipmentData.add(equipment);
+            }
+
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
     }
 
-    //method for inserting member
-    public void insertMember(){
-        
+    public void loadMembersData() throws SQLException {
+
+        Connection conn = null;
+        Statement stmt = null;
+ 
+        try {
+
+            // create a connection to the database
+            conn = DriverManager.getConnection(databaseURL);
+
+            System.out.println("Connection to SQLite has been established.");
+            String sql = "SELECT * FROM Members;";
+            // Ensure we can query the actors table
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                Members member;
+                member = new Members(rs.getInt("member_ID"), rs.getString("first_name"), 
+                        rs.getString("last_name"),rs.getString("join_date"), rs.getString("last_visit"), 
+                        rs.getInt("total_visits"), rs.getInt("employee_sponsor"), rs.getInt("membership"));
+                
+                System.out.println(member.getMember_ID() + " - " + member.getFirst_name() + " - " + 
+                        member.getLast_name() + " - " + member.getJoin_date()+ " - " + 
+                        member.getLast_visit()+ " - " + member.getTotal_visits() +" - "+ 
+                        member.getEmployee_sponsor()+" - "+ member.getMembership());
+                membersData.add(member);
+            }
+
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
     }
 
-    //method for inserting membership
-    public void insertMembershipType(){
-        
+    public void loadMembershipTypesData() throws SQLException {
+
+        Connection conn = null;
+        Statement stmt = null;
+ 
+        try {
+
+            // create a connection to the database
+            conn = DriverManager.getConnection(databaseURL);
+
+            System.out.println("Connection to SQLite has been established.");
+            String sql = "SELECT * FROM Membership_Types;";
+            // Ensure we can query the actors table
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                MembershipTypes membership;
+                membership = new MembershipTypes(rs.getInt("membership_type_ID"), rs.getString("type"), 
+                        rs.getInt("cost"),rs.getInt("duration"));
+                System.out.println(membership.getMembership_type_ID()+ " - " + membership.getType() + " - " + 
+                        membership.getCost() + " - " + membership.getDuration());
+                membershipTypesData.add(membership);
+            }
+
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
     }
 
-    //method for inserting supervisor
-    public void insertSupervisor(){
-        
+     public void loadSupervisorData() throws SQLException {
+
+        Connection conn = null;
+        Statement stmt = null;
+ 
+        try {
+
+            // create a connection to the database
+            conn = DriverManager.getConnection(databaseURL);
+
+            System.out.println("Connection to SQLite has been established.");
+            String sql = "SELECT * FROM Supervisor;";
+            // Ensure we can query the actors table
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+
+            while (rs.next()) {
+                Supervisor supervisor;
+                supervisor = new Supervisor(rs.getInt("supervisor_ID"), rs.getString("first_name"), 
+                        rs.getString("last_name"));
+                System.out.println(supervisor.getSupervisor_ID()+ " - " + supervisor.getFirst_name() + " - " + 
+                        supervisor.getLast_name());
+                supervisorData.add(supervisor);
+            }
+
+            rs.close();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
     }
     
     
