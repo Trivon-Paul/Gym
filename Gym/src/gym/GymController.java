@@ -245,31 +245,34 @@ public class GymController implements Initializable {
         /* Allow for the values in each cell to be changable */
     }
 
-    //method for inserting employees into table
-    public void insertEmployee(int employee_ID,String first_name, String last_name, 
-            String hire_date, int members_representing, int supervisor) throws SQLException {
-        Connection conn = null;
-        try {
-            // create a connection to the database
+    public void loadEmployeeData() throws SQLException {
 
+        Connection conn = null;
+        Statement stmt = null;
+ 
+        try {
+
+            // create a connection to the database
             conn = DriverManager.getConnection(databaseURL);
 
             System.out.println("Connection to SQLite has been established.");
+            String sql = "SELECT * FROM Employees;";
+            // Ensure we can query the actors table
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
 
-            System.out.println("Inserting one record!");
+            while (rs.next()) {
+                Employee employee;
+                employee = new Employee(rs.getInt("employee_ID"), rs.getString("first_name"), 
+                        rs.getString("last_name"),rs.getString("hire_date"), rs.getInt("members_representing"), 
+                        rs.getInt("supervisor"));
+                System.out.println(employee.getEmployee_ID() + " - " + employee.getFirst_name() + " - " + 
+                        employee.getLast_name() + " - " + employee.getHire_date()+ " - " + 
+                        employee.getMembersRepresenting()+ " - " + employee.getSupervisor());
+                employeeData.add(employee);
+            }
 
-            String sql = "INSERT INTO employee(employee_ID,first_name,last_name,hire_date,"
-                    + "members_representing,supervisor) VALUES(?,?,?,?,?,?)";
-
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setInt(1, employee_ID);
-            pstmt.setString(2, first_name);
-            pstmt.setString(3, last_name);
-            pstmt.setString(4, hire_date);
-            pstmt.setInt(5, members_representing);
-            pstmt.setInt(6, supervisor);
-            pstmt.executeUpdate();
-
+            rs.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         } finally {
@@ -281,10 +284,6 @@ public class GymController implements Initializable {
                 System.out.println(ex.getMessage());
             }
         }
-        System.out.println("employee_ID " + employee_ID);
-  
-        employeeData.add(new Employee(employee_ID, first_name,last_name,hire_date, 
-                members_representing, supervisor));
     }
 
  public void loadEquipmentData() throws SQLException {
