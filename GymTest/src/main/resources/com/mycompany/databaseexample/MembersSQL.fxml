@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.databaseexample.DatabaseSQLiteController">
+   <bottom>
+      <HBox prefHeight="174.0" prefWidth="900.0" styleClass="header-section" stylesheets="@demo.css" BorderPane.alignment="CENTER">
+         <children>
+            <TextField />
+            <TextField />
+            <TextField />
+            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" text="Button" />
+         </children></HBox>
+   </bottom>
+   <top>
+      <HBox prefHeight="51.0" prefWidth="900.0" styleClass="header-section" stylesheets="@demo.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="51.0" prefWidth="573.0" text="Members Data">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children></HBox>
+   </top>
+   <center>
+      <TableView fx:id="tableView2" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
