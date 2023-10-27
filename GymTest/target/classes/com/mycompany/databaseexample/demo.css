@@ -1,0 +1,144 @@
+.root {
+    -fx-font-size: 14px;
+    -fx-font-family: sans-serif;
+    -fx-background-color: #ffffff;
+}
+
+.header-section {
+    -fx-padding: 10px;
+    -fx-font-size: 20px;
+    -fx-background-color: red;
+
+}
+
+.header-section Label {
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10px;
+}
+
+#account {
+    -fx-background-color: transparent;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-cursor: hand;
+}
+
+.sidebar-section {
+    -fx-min-width: 200px;
+    -fx-pref-width: 200px;
+    -fx-max-width: 200px;
+    -fx-border-width: 1;
+    -fx-border-color: transparent #E8E8E8 transparent transparent;
+}
+
+.sidebar-section Label {
+    -fx-font-size: 18px;
+    -fx-padding: 10 15 10 15;
+    -fx-border-width: 1;
+    -fx-border-color: transparent transparent #E8E8E8 transparent;
+    -fx-min-width: 200px;
+    -fx-pref-width: 200px;
+    -fx-max-width: 200px;
+}
+
+.content-section {
+    -fx-padding: 10 20 10 20;
+    -fx-wrap-text: true;
+
+}
+
+#content-header {
+    -fx-font-size: 18px;
+    -fx-padding: 0 0 10 0;
+    -fx-font-weight: 700;
+}
+
+#content {
+    -fx-wrap-text: true;
+    -fx-font-size: 16px;
+}
+
+#footer-section {
+    -fx-alignment: center;
+    -fx-padding: 10 10 10 10;
+    -fx-border-width: 1;
+    -fx-border-color: #E8E8E8 transparent transparent transparent;
+}
+
+#img {
+    -fx-border-radius: 50%;
+}
+.image-container {
+    -fx-width:700px;
+    -fx-height:500px;
+    -fx-background-color: white;
+    -fx-border-style: solid;
+    -fx-border-color: red;
+    -fx-border-radius: 50%;
+    -fx-background-size: cover;
+}
+
+
+
+
+.footer{
+    -fx-font-style: normal;
+    -fx-font-family: 'Edwardian Script ITC';
+    -fx-font-size: 20pt;
+/*    -fx-background-image: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #ff0000 0.0%, #ffffff 100.0%) ;*/
+    -fx-font-weight: 700;
+/*    -fx-background-color: #81c483;*/
+    -fx-text-fill: linear-gradient(from 0.0% 0.0% to 100.0% 100.0%, #ff0000 0.0%, #0000ff 100.0%) ;
+    
+    -fx-rotate:0;
+}
+
+.title{
+    -fx-font-family: initial;
+    -fx-background-color: #fcc200;
+    -fx-font-weight: bold;
+}
+
+.normal{
+    -fx-font-style: normal;
+}
+
+.italic{
+    -fx-font-style: italic;
+}
+
+.oblique{
+    -fx-font-style: oblique;
+}
+.gradinet1{
+-fx-text-fill: #FFFFFF;
+-fx-background-color: #333333;
+
+
+}
+
+
+.myrect {
+    -fx-fill: yellow;
+    -fx-stroke: green;
+    -fx-stroke-width: 5;
+    -fx-stroke-dash-array: 12 2 4 2;
+    -fx-stroke-dash-offset: 6;
+    -fx-stroke-line-cap: butt;
+}
+
+
+.border-1{
+       -fx-background-radius:50%;
+}
+
+.img{
+    -fx-image:url(Shaid.jpg)
+}
+
+.highlightedRow {
+    -fx-background-color: rgba(255,0,0, 0.25);
+    -fx-background-insets: 0, 1, 2;
+    -fx-background: -fx-accent;
+    -fx-text-fill: -fx-selection-bar-text;    
+}

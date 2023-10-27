@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="770.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.databaseexample.DatabaseSQLiteController">
+    <top>
+        <BorderPane styleClass="header-section" stylesheets="@demo.css">
+            <left>
+                <Label id="header-text" text="Gym Database Application Using Java FXML" />
+            </left>
+            <right>
+                <Button id="account" text="Account">
+                    <graphic>
+                        <ImageView fitHeight="24" fitWidth="24" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@javafx_account_example.png" />
+                            </image>
+                        </ImageView>
+                    </graphic>
+                </Button>
+            </right>
+        </BorderPane>
+    </top>
+    <left>
+        <VBox prefHeight="588.0" prefWidth="192.0" styleClass="sidebar-section">
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleShowAllEmployee" prefHeight="34.0" prefWidth="192.0" styleClass="btn-success" stylesheets="@styles.css" text="Show all Data" />
+            <Button mnemonicParsing="false" onAction="#handleShowAllEquipment" prefHeight="34.0" prefWidth="194.0" styleClass="btn-info" stylesheets="@styles.css" text="Equipment" />
+            <Button mnemonicParsing="false" onAction="#handleShowAllMembers" prefHeight="34.0" prefWidth="192.0" styleClass="btn-warning" stylesheets="@styles.css" text="Members" />
+              <Button mnemonicParsing="false" onAction="#handleShowAllMemberships" prefHeight="34.0" prefWidth="199.0" styleClass="btn-danger" stylesheets="@styles.css" text="Membership Types" />
+              <Button mnemonicParsing="false" onAction="#handleShowAllSupervisors" prefHeight="34.0" prefWidth="193.0" styleClass="btn-primary" stylesheets="@styles.css" text="Supervisors" />
+         </children>
+        </VBox>
+    </left>
+    <center>
+        <VBox fx:id="vBox" minHeight="600.0" prefHeight="500.0" styleClass="content-section">
+            <children>
+                <Label id="content-header" stylesheets="@demo.css" text="Gym Database Application" textFill="#11c3c6" />
+            
+                <!-- container using pref size as max size to not grow larger than the image -->
+                <VBox maxHeight="-Infinity" maxWidth="-Infinity" styleClass="my-rect" stylesheets="@demo.css" />  
+            
+            
+                <Label id="content" styleClass="content-section" stylesheets="@demo.css" text="This application uses SQLite and allows adding records, deleting records, searching records, and updating records" />
+                <TableView fx:id="tableView" onMouseClicked="#showRowData" prefHeight="547.0" prefWidth="600.0" />
+                
+                            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                <children>
+                    <TextField fx:id="first_nameTextField" prefWidth="175.0" promptText="Title" stylesheets="@styles.css" text="First_Name" />
+                    <TextField fx:id="last_NameTextField" prefWidth="175.0" promptText="Year" stylesheets="@styles.css" text="Last Name" />
+                    <TextField fx:id="hire_DateTextField" prefWidth="175.0" promptText="Rating" stylesheets="@styles.css" text="Hire Date" />
+                    <TextField fx:id="membersTextField" prefWidth="175.0" promptText="Rating" stylesheets="@styles.css" text="Members" />
+                </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" />
+                
+            </children>
+            </VBox>
+
+               
+        
+
+    </center>
+    <bottom>
+        <HBox id="footer-section" alignment="CENTER" minHeight="100.0" prefHeight="100.0" prefWidth="853.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label fx:id="footerLabel" alignment="CENTER" prefHeight="31.0" prefWidth="313.0" styleClass="footer" stylesheets="@demo.css" text="Copyright 2023 Dr. Samir Hamada">
+                    <font>
+                        <Font name="Arial" size="12.0" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+    </bottom>
+    
+    
+</BorderPane>
