@@ -742,6 +742,151 @@ public class DatabaseSQLiteController implements Initializable {
 
     }
 
+    public void deleteEmployee(int id, int selectedIndex) {
+
+        Connection conn = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            // create a connection to the database
+            conn = DriverManager.getConnection(databaseURL);
+
+            String sql = "DELETE FROM employees WHERE employee_id=" + Integer.toString(id);
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+
+            tableView.getItems().remove(selectedIndex);
+            System.out.println("Record Deleted Successfully");
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+
+    }
+
+    public void deleteMember(int id, int selectedIndex) {
+
+        Connection conn = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            // create a connection to the database
+            conn = DriverManager.getConnection(databaseURL);
+
+            String sql = "DELETE FROM Members WHERE member_id=" + Integer.toString(id);
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+
+            tableView.getItems().remove(selectedIndex);
+            System.out.println("Record Deleted Successfully");
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+
+    }
+
+    public void deleteEquipment(int id, int selectedIndex) {
+
+        Connection conn = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            // create a connection to the database
+            conn = DriverManager.getConnection(databaseURL);
+
+            String sql = "DELETE FROM equipment WHERE equipment_id=" + Integer.toString(id);
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+
+            tableView.getItems().remove(selectedIndex);
+            System.out.println("Record Deleted Successfully");
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+
+    }
+
+    public void deleteSupervisor(int id, int selectedIndex) {
+
+        Connection conn = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            // create a connection to the database
+            conn = DriverManager.getConnection(databaseURL);
+
+            String sql = "DELETE FROM supervisors WHERE supervisor_id=" + Integer.toString(id);
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+
+            tableView.getItems().remove(selectedIndex);
+            System.out.println("Record Deleted Successfully");
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+
+    }
+
+    public void deleteMembershipType(int id, int selectedIndex) {
+
+        Connection conn = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            // create a connection to the database
+            conn = DriverManager.getConnection(databaseURL);
+
+            String sql = "DELETE FROM membership_type WHERE membership_type_id=" + Integer.toString(id);
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(sql);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+
+            tableView.getItems().remove(selectedIndex);
+            System.out.println("Record Deleted Successfully");
+            try {
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+
+    }
+
     @FXML
     private void handleDeleteAction(ActionEvent event) throws IOException {
         System.out.println("Delete Employee");
