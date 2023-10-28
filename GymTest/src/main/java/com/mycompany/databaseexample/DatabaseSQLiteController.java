@@ -230,7 +230,7 @@ public class DatabaseSQLiteController implements Initializable {
 
         TableColumn cost = new TableColumn("Cost");
         cost.setMinWidth(100);
-        cost.setCellValueFactory(new PropertyValueFactory<MembershipTypes, Integer>("cost"));
+        cost.setCellValueFactory(new PropertyValueFactory<MembershipTypes, String>("cost"));
 
         TableColumn duration = new TableColumn("Duration");
         duration.setMinWidth(100);
@@ -625,7 +625,7 @@ public class DatabaseSQLiteController implements Initializable {
     }
     }
         
-    public void insertMembershipType(int membership_type_ID, String type, int cost, int duration)throws SQLException{
+    public void insertMembershipType(int membership_type_ID, String type, String cost, int duration)throws SQLException{
         Connection conn = null;
         try {
             // create a connection to the database
@@ -641,7 +641,7 @@ public class DatabaseSQLiteController implements Initializable {
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, membership_type_ID);
             pstmt.setString(2, type);
-            pstmt.setInt(3, cost);
+            pstmt.setString(3, cost);
             pstmt.setInt(4, duration);
             pstmt.executeUpdate();
 
