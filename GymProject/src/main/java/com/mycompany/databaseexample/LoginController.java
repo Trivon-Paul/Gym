@@ -46,6 +46,8 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.Pane;
  
 public class LoginController {
     @FXML private Text actiontarget;
@@ -53,7 +55,7 @@ public class LoginController {
     @FXML private TextField usernameTextField;
     @FXML private TextField passwordTextField;
     
-    String URL ="jdbc:sqlite:src/main/resources/com/mycompany/databaseexample/Credentials.db";
+    String URL ="jdbc:sqlite:src/main/resources/com/mycompany/databaseexample/Gym_Database.db";
     
     @FXML protected void handleSubmitButtonAction(ActionEvent event) {
         if(usernameTextField.getText().isEmpty()==false && passwordTextField.getText().isEmpty()==false){
@@ -69,7 +71,17 @@ public class LoginController {
         
         try {
             conn = DriverManager.getConnection(URL);
-        } catch (SQLException ex) {
+            
+            String sql = "SELECT * FROM Credentials WHERE username = " + usernameTextField.getText()
+                + " and password = " + passwordTextField.getText();
+            
+            Statement stmt = conn.createStatement();
+            boolean pass = stmt.execute(sql);
+            
+            if(pass){
+                Pane loadedPane = FXMLLoader.load(getClass().getResource("main.fxml"));
+            }
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
     }
