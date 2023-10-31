@@ -39,27 +39,36 @@ import javafx.scene.text.Text;
 
 public class DatabaseSQLiteController implements Initializable {
 
+    //These Tableviews represent the differnt tables in the FXML
+    //This is for Employees
     @FXML
     private TableView tableView = new TableView();
-    
+
+    //This is for Equipment
     @FXML
     private TableView tableView1 = new TableView();
-    
+
+    //This is for Members
     @FXML
     private TableView tableView2 = new TableView();
-        
+
+    //This is for Memberships
     @FXML
     private TableView tableView3 = new TableView();
-            
+
+    //This is for Supervisors
     @FXML
     private TableView tableView4 = new TableView();
-  
+
+    //Vbox in FXML
     @FXML
     private VBox vBox;
-    
+
+    //This is where the content will be displayed in the FXML
     @FXML
     VBox contentPane = new VBox();
 
+    //These are the textfields for the different attributes these, basically set the values in the table
     @FXML
     private TextField employeeIDTextField, first_NameTextField, last_NameTextField, hire_DateTextField, membersTextField, supervisorTextField;
     @FXML
@@ -96,9 +105,8 @@ public class DatabaseSQLiteController implements Initializable {
     }
 
     String databaseURL = "jdbc:sqlite:src/main/resources/com/mycompany/databaseexample/Gym_Database.db";
-
-    /* Connect to a sample database
-     */
+    //Connect to a sample database
+     
     private ObservableList<Employee> employeeData;
     private ObservableList<Equipment> equipmentData;
     private ObservableList<Members> membersData;
@@ -121,6 +129,7 @@ public class DatabaseSQLiteController implements Initializable {
     }
 
     @FXML
+    //These initialize methods create the columns in the appropriate tables
     //initialize columns for employee data
     private void intializeEmployeeColumns() { 
         TableColumn<Employee, Integer> EmployeeID = new TableColumn("Employee ID");
@@ -275,7 +284,7 @@ public class DatabaseSQLiteController implements Initializable {
         /* Allow for the values in each cell to be changable */
     }
 
-    
+    //These load methods read data from the tables and loads it to the observable lists
     public void loadEmployeeData() throws SQLException {
 
         Connection conn = null;
@@ -509,7 +518,7 @@ public class DatabaseSQLiteController implements Initializable {
      * @param supervisor     
      * @throws java.sql.SQLException
      */
-    
+    //These are the insertion methods for inserting into the tables
     public void insertEmployee(int employee_ID,String first_name, String last_name, 
             String hire_date, int members_representing, int supervisor) throws SQLException {
         Connection conn = null;
@@ -698,6 +707,7 @@ public class DatabaseSQLiteController implements Initializable {
     }
     }
 
+    //Action methods to insert the tables 
     @FXML
     public void handleAddEmployee(ActionEvent actionEvent) {
 
