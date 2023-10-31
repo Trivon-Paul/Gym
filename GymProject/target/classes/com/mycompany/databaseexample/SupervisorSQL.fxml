@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.databaseexample.DatabaseSQLiteController">
+   <bottom>
+      <HBox prefHeight="174.0" prefWidth="900.0" styleClass="header-section" stylesheets="@demo.css" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="supervisor_ID" prefHeight="44.0" prefWidth="215.0" promptText="Supervisor ID" />
+            <TextField fx:id="supervisor_first_nameTextField" prefHeight="44.0" prefWidth="215.0" promptText="First Name" />
+            <TextField fx:id="supervisor_last_nameTextField" prefHeight="44.0" prefWidth="215.0" promptText="Last Name" />
+         </children></HBox>
+   </bottom>
+   <top>
+      <HBox prefHeight="51.0" prefWidth="900.0" styleClass="header-section" stylesheets="@demo.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="51.0" prefWidth="573.0" text="Supervisor Data">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children></HBox>
+   </top>
+   <center>
+      <TableView fx:id="tableView4" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+   <left>
+      <VBox prefHeight="450.0" prefWidth="156.0" BorderPane.alignment="CENTER">
+         <stylesheets>
+            <URL value="@demo.css" />
+            <URL value="@styles.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="border-1" />
+            <String fx:value="sidebar-section" />
+         </styleClass>
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleAddSupervisor" prefHeight="50.0" prefWidth="198.0" styleClass="btn-success" text="Insert">
+               <stylesheets>
+                  <URL value="@styles.css" />
+                  <URL value="@demo.css" />
+               </stylesheets>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleDeleteSupervisor" prefHeight="50.0" prefWidth="198.0" styleClass="btn-primary" text="Delete">
+               <stylesheets>
+                  <URL value="@styles.css" />
+                  <URL value="@styles.css" />
+               </stylesheets>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleSearchSupervisor" prefHeight="50.0" prefWidth="198.0" styleClass="btn-danger" text="Search">
+               <stylesheets>
+                  <URL value="@styles.css" />
+                  <URL value="@demo.css" />
+               </stylesheets>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleShowAllSupervisors" prefHeight="50.0" prefWidth="198.0" styleClass="btn-default" text="Show All">
+               <stylesheets>
+                  <URL value="@demo.css" />
+                  <URL value="@styles.css" />
+               </stylesheets>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleUpdateSupervisor" prefHeight="50.0" prefWidth="198.0" styleClass="btn-warning" text="Update">
+               <stylesheets>
+                  <URL value="@demo.css" />
+                  <URL value="@styles.css" />
+               </stylesheets>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

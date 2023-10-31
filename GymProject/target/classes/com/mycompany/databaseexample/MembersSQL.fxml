@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.databaseexample.DatabaseSQLiteController">
+   <bottom>
+      <HBox prefHeight="174.0" prefWidth="900.0" styleClass="header-section" stylesheets="@demo.css" BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="member_IDTextField" prefHeight="44.0" prefWidth="120.0" promptText="Member ID">
+               <font>
+                  <Font size="11.0" />
+               </font></TextField>
+            <TextField fx:id="member_first_nameTextField" prefHeight="44.0" prefWidth="120.0" promptText="First Name">
+               <font>
+                  <Font size="11.0" />
+               </font></TextField>
+            <TextField fx:id="member_last_nameTextField" prefHeight="44.0" prefWidth="120.0" promptText="Last Name">
+               <font>
+                  <Font size="11.0" />
+               </font></TextField>
+            <TextField fx:id="join_dateTextField" prefHeight="44.0" prefWidth="120.0" promptText="Join Date">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="last_visitTextField" prefHeight="44.0" prefWidth="120.0" promptText="Last Visit">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="total_visitsTextField" prefHeight="44.0" prefWidth="120.0" promptText="Total Visits">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="employee_SponsorTextField" prefHeight="44.0" prefWidth="120.0" promptText="Employee Sponsor">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="membershipTextfield" prefHeight="44.0" prefWidth="116.0" promptText="Membership">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </TextField>
+         </children></HBox>
+   </bottom>
+   <top>
+      <HBox prefHeight="51.0" prefWidth="900.0" styleClass="header-section" stylesheets="@demo.css" BorderPane.alignment="CENTER">
+         <children>
+            <Label prefHeight="51.0" prefWidth="573.0" text="Members Data">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+         </children></HBox>
+   </top>
+   <center>
+      <TableView fx:id="tableView2" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </center>
+   <left>
+      <VBox prefHeight="450.0" prefWidth="156.0" BorderPane.alignment="CENTER">
+         <stylesheets>
+            <URL value="@demo.css" />
+            <URL value="@styles.css" />
+         </stylesheets>
+         <styleClass>
+            <String fx:value="border-1" />
+            <String fx:value="sidebar-section" />
+         </styleClass>
+         <children>
+            <Button mnemonicParsing="false" onAction="#handleAddMember" prefHeight="50.0" prefWidth="198.0" styleClass="btn-success" text="Insert">
+               <stylesheets>
+                  <URL value="@styles.css" />
+                  <URL value="@demo.css" />
+               </stylesheets>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleDeleteMember" prefHeight="50.0" prefWidth="198.0" styleClass="btn-primary" text="Delete">
+               <stylesheets>
+                  <URL value="@styles.css" />
+                  <URL value="@styles.css" />
+               </stylesheets>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleSearchMember" prefHeight="50.0" prefWidth="198.0" styleClass="btn-danger" text="Search">
+               <stylesheets>
+                  <URL value="@styles.css" />
+                  <URL value="@demo.css" />
+               </stylesheets>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleShowAllMembers" prefHeight="50.0" prefWidth="198.0" styleClass="btn-default" text="Show All">
+               <stylesheets>
+                  <URL value="@demo.css" />
+                  <URL value="@styles.css" />
+               </stylesheets>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#handleUpdateMember" prefHeight="50.0" prefWidth="198.0" styleClass="btn-warning" text="Update">
+               <stylesheets>
+                  <URL value="@demo.css" />
+                  <URL value="@styles.css" />
+               </stylesheets>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+</BorderPane>
