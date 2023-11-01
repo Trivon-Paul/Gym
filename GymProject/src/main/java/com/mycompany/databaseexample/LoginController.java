@@ -58,12 +58,7 @@ public class LoginController {
     String URL ="jdbc:sqlite:src/main/resources/com/mycompany/databaseexample/Gym_Database.db";
     
     @FXML protected void handleSubmitButtonAction(ActionEvent event) {
-        if(usernameTextField.getText().isEmpty()==false && passwordTextField.getText().isEmpty()==false){
-            validateCredentials();
-        }else{
-            actiontarget.setText("Please enter login credentials");
-        }
-        actiontarget.setText("Sign in button pressed");
+        validateCredentials();
     }
     
     public void validateCredentials(){
@@ -73,11 +68,19 @@ public class LoginController {
             conn = DriverManager.getConnection(URL);
             
             String sql = "SELECT * FROM Credentials WHERE username = " + usernameTextField.getText()
-                + " and password = " + passwordTextField.getText();
+                + ";";
             
             Statement stmt = conn.createStatement();
-            boolean pass = stmt.execute(sql);
+            ResultSet q = stmt.executeQuery(sql);
+            boolean pass = false;
             
+            while(q.next()){
+                if(q.getString("Password").equals(passwordTextField.getText())){
+                    pass = true;
+                }
+            }
+            
+            System.out.println(pass);
             if(pass){
                 Pane loadedPane = FXMLLoader.load(getClass().getResource("main.fxml"));
             }
