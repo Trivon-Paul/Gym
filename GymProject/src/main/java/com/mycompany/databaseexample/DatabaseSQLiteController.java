@@ -684,7 +684,7 @@ public class DatabaseSQLiteController implements Initializable {
 
             System.out.println("Inserting one record!");
 
-            String sql = "INSERT INTO Supervisor(supervsor_ID,first_name,last_name) VALUES(?,?,?)";
+            String sql = "INSERT INTO Supervisor(supervisor_ID,first_name,last_name) VALUES(?,?,?)";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setInt(1, supervisor_ID);
