@@ -52,6 +52,7 @@ import javafx.scene.layout.Pane;
 public class LoginController {
     @FXML private Text actiontarget;
     
+    @FXML private Pane contentPane;
     @FXML private TextField usernameTextField;
     @FXML private TextField passwordTextField;
     
@@ -83,6 +84,8 @@ public class LoginController {
             System.out.println(pass);
             if(pass){
                 Pane loadedPane = FXMLLoader.load(getClass().getResource("main.fxml"));
+                contentPane.getChildren().clear();
+                contentPane.getChildren().add(loadedPane);
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
