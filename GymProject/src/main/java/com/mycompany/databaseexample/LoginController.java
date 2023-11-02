@@ -67,8 +67,8 @@ public class LoginController {
         try {
             conn = DriverManager.getConnection(URL);
             
-            String sql = "SELECT * FROM Credentials WHERE username = " + usernameTextField.getText()
-                + ";";
+            String sql = "SELECT * FROM Credentials WHERE username = '" + usernameTextField.getText()
+                + "';";
             
             Statement stmt = conn.createStatement();
             ResultSet q = stmt.executeQuery(sql);
