@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -104,7 +106,8 @@ public class DatabaseSQLiteController implements Initializable {
         
     }
 
-    String databaseURL = "jdbc:sqlite:src/main/resources/com/mycompany/databaseexample/Gym_Database.db";
+    String databaseURL = "jdbc:mysql://localhost:3306/Gym_Database?" +
+                                   "user=client&password=password";
     //Connect to a sample database
      
     private ObservableList<Employee> employeeData;
@@ -126,6 +129,16 @@ public class DatabaseSQLiteController implements Initializable {
         this.membersData = FXCollections.observableArrayList();
         this.membershipTypesData = FXCollections.observableArrayList();
         this.supervisorData = FXCollections.observableArrayList();
+        
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DatabaseSQLiteController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(DatabaseSQLiteController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(DatabaseSQLiteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
