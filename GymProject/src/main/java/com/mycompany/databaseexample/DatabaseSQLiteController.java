@@ -312,6 +312,7 @@ public class DatabaseSQLiteController implements Initializable {
             String sql = "SELECT * FROM Employees;";
             // Ensure we can query the actors table
             stmt = conn.createStatement();
+            stmt.execute("START TRANSACTION;");
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
@@ -325,6 +326,7 @@ public class DatabaseSQLiteController implements Initializable {
                 employeeData.add(employee);
             }
 
+            stmt.execute("COMMIT;");
             rs.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -351,6 +353,7 @@ public class DatabaseSQLiteController implements Initializable {
             String sql = "SELECT * FROM Equipment;";
             // Ensure we can query the actors table
             stmt = conn.createStatement();
+            stmt.execute("START TRANSACTION;");
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
@@ -362,6 +365,7 @@ public class DatabaseSQLiteController implements Initializable {
                 equipmentData.add(equipment);
             }
 
+            stmt.execute("COMMIT;");
             rs.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -390,6 +394,7 @@ public class DatabaseSQLiteController implements Initializable {
             String sql = "SELECT * FROM Members;";
             // Ensure we can query the actors table
             stmt = conn.createStatement();
+            stmt.execute("START TRANSACTION;");
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
@@ -403,6 +408,7 @@ public class DatabaseSQLiteController implements Initializable {
                         member.getEmployee_sponsor()+" - "+ member.getMembership());
                 membersData.add(member);
             }
+            stmt.execute("COMMIT;");
             rs.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -428,9 +434,10 @@ public class DatabaseSQLiteController implements Initializable {
             conn = DriverManager.getConnection(databaseURL);
 
             System.out.println("Connection to SQLite has been established.");
-            String sql = "SELECT * FROM Membership_Types;";
             // Ensure we can query the actors table
             stmt = conn.createStatement();
+            stmt.execute("START TRANSACTION;");
+            String sql = "SELECT * FROM Membership_Types;";
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
@@ -441,7 +448,8 @@ public class DatabaseSQLiteController implements Initializable {
                         membership.getCost() + " - " + membership.getDuration());
                 membershipTypesData.add(membership);
             }
-
+            
+            stmt.execute("COMMIT;");
             rs.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -470,6 +478,7 @@ public class DatabaseSQLiteController implements Initializable {
             String sql = "SELECT * FROM Supervisor;";
             // Ensure we can query the actors table
             stmt = conn.createStatement();
+            stmt.execute("START TRANSACTION;");
             ResultSet rs = stmt.executeQuery(sql);
 
             while (rs.next()) {
@@ -481,6 +490,8 @@ public class DatabaseSQLiteController implements Initializable {
                 supervisorData.add(supervisor);
             }
 
+            
+            stmt.execute("COMMIT;");
             rs.close();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
