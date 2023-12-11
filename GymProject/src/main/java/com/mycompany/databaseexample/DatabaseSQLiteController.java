@@ -312,6 +312,7 @@ public class DatabaseSQLiteController implements Initializable {
             String sql = "SELECT * FROM Employees;";
             // Ensure we can query the actors table
             stmt = conn.createStatement();
+            stmt.execute("SET TRANSACTION ISOLATION LEVEL READ COMMITTED;");
             stmt.execute("START TRANSACTION;");
             ResultSet rs = stmt.executeQuery(sql);
 
@@ -350,6 +351,7 @@ public class DatabaseSQLiteController implements Initializable {
             conn = DriverManager.getConnection(databaseURL);
 
             System.out.println("Connection to SQLite has been established.");
+            stmt.execute("SET TRANSACTION ISOLATION LEVEL READ COMMITTED;");
             String sql = "SELECT * FROM Equipment;";
             // Ensure we can query the actors table
             stmt = conn.createStatement();
@@ -391,6 +393,7 @@ public class DatabaseSQLiteController implements Initializable {
             conn = DriverManager.getConnection(databaseURL);
 
             System.out.println("Connection to SQLite has been established. Members");
+            stmt.execute("SET TRANSACTION ISOLATION LEVEL READ COMMITTED;");
             String sql = "SELECT * FROM Members;";
             // Ensure we can query the actors table
             stmt = conn.createStatement();
@@ -436,6 +439,7 @@ public class DatabaseSQLiteController implements Initializable {
             System.out.println("Connection to SQLite has been established.");
             // Ensure we can query the actors table
             stmt = conn.createStatement();
+            stmt.execute("SET TRANSACTION ISOLATION LEVEL READ COMMITTED;");
             stmt.execute("START TRANSACTION;");
             String sql = "SELECT * FROM Membership_Types;";
             ResultSet rs = stmt.executeQuery(sql);
@@ -475,6 +479,7 @@ public class DatabaseSQLiteController implements Initializable {
             conn = DriverManager.getConnection(databaseURL);
 
             System.out.println("Connection to SQLite has been established.");
+            stmt.execute("SET TRANSACTION ISOLATION LEVEL READ COMMITTED;");
             String sql = "SELECT * FROM Supervisor;";
             // Ensure we can query the actors table
             stmt = conn.createStatement();
