@@ -235,4 +235,49 @@ INSERT INTO `Equipment` (Equipment_ID,Cost,Daily_Usage,Employee_Owner) VALUES (1
  (96038,'$5763.39','6:29',1662),
  (98816,'$6216.33','22:28',2129),
  (99497,'$1136.71','15:28',1330);
+ 
+ CREATE TABLE `employeeaudit` (
+  `Audit_ID` int NOT NULL AUTO_INCREMENT,
+  `Timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `ChangeType` varchar(10) NOT NULL,
+  `Employee_ID` int DEFAULT NULL,
+  `FirstName` varchar(255) DEFAULT NULL,
+  `LastName` varchar(255) DEFAULT NULL,
+  `HireDate` date DEFAULT NULL,
+  `Members` int DEFAULT NULL,
+  `Supervisor` int DEFAULT NULL,
+  PRIMARY KEY (`Audit_ID`),
+  KEY `Employee_ID` (`Employee_ID`),
+  CONSTRAINT `employeeaudit_ibfk_1` FOREIGN KEY (`Employee_ID`) REFERENCES `employees` (`Employee_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS EquipmentAudit (
+    Audit_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Timestamp TIMESTAMP,
+    Equipment_ID INTEGER,
+    Cost TEXT,
+    Action TEXT,
+    FOREIGN KEY (Equipment_ID) REFERENCES Equipment(Equipment_ID)
+);
+
+CREATE TABLE `memberaudit` (
+  `Audit_ID` int NOT NULL AUTO_INCREMENT,
+  `Timestamp` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `Member_ID` int DEFAULT NULL,
+  `First_Name` varchar(255) DEFAULT NULL,
+  `Last_Name` varchar(255) DEFAULT NULL,
+  `ChangeType` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`Audit_ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+CREATE TABLE IF NOT EXISTS SupervisorAudit (
+    Audit_ID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Timestamp TIMESTAMP,
+    Supervisor_ID INTEGER,
+    First_Name TEXT,
+    Last_Name TEXT,
+    Action TEXT,
+    FOREIGN KEY (Supervisor_ID) REFERENCES Supervisor(Supervisor_ID)
+);
 COMMIT;
