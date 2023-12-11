@@ -63,12 +63,6 @@
                   <URL value="@styles.css" />
                </stylesheets>
             </Button>
-            <Button mnemonicParsing="false" onAction="#handleUpdateSupervisor" prefHeight="50.0" prefWidth="198.0" styleClass="btn-warning" text="Update">
-               <stylesheets>
-                  <URL value="@demo.css" />
-                  <URL value="@styles.css" />
-               </stylesheets>
-            </Button>
          </children>
       </VBox>
    </left>
