@@ -785,7 +785,7 @@ public class DatabaseSQLiteController implements Initializable {
         
         try {
             // insert a new rows
-            insertMember(Integer.parseInt(member_IDTextField.getText()), member_first_nameTextField.getText(), member_last_nameTextField.getText(), join_dateTextField.getText(), last_visitTextField.getText(),Integer.parseInt(total_visitsTextField.getText()),Integer.parseInt(membershipTextfield.getText()),Integer.parseInt(employee_SponsorTextField.getText()));
+            insertMember(Integer.parseInt(member_IDTextField.getText()), member_first_nameTextField.getText(), member_last_nameTextField.getText(), join_dateTextField.getText(), last_visitTextField.getText(),Integer.parseInt(total_visitsTextField.getText()),Integer.parseInt(employee_SponsorTextField.getText()),Integer.parseInt(membershipTextfield.getText()));
 
             System.out.println("Data was inserted Successfully");
         } catch (SQLException ex) {
